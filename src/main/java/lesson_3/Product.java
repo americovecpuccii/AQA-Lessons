@@ -1,12 +1,12 @@
 package lesson_3;
-public class product {
+public class Product {
     private String name;
     private String productionDate;
     private String countryOfOrigin;
     private Integer price;
     private Boolean statusOfTheBooking;
 
-    public product(String name, String productionDate, String countryOfOrigin,
+    public Product(String name, String productionDate, String countryOfOrigin,
                    Integer price, Boolean statusOfTheBooking) {
         this.name = name;
         this.productionDate = productionDate;
