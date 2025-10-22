@@ -1,6 +1,7 @@
 package lesson_4;
 
 class Cat extends Animal {
+
     private static int catCount = 0;
     private final int MAX_RUN_DISTANCE = 200;
     private boolean fullness; // сытость
@@ -10,6 +11,7 @@ class Cat extends Animal {
         this.fullness = false;
         catCount++;
     }
+
     public void run(int distance) {
         if (distance <= MAX_RUN_DISTANCE) {
             System.out.println(name + " пробежал " + distance + " м.");
@@ -17,9 +19,11 @@ class Cat extends Animal {
             System.out.println(name + " не может пробежать " + distance);
         }
     }
+
     public void swim(int distance) {
         System.out.println(name + " не умеет плавать.");
     }
+
     public void eat(Bowl bowl) {
         if (bowl.getFood() >= FOOD_PORTION) {
             fullness = true;
@@ -28,9 +32,11 @@ class Cat extends Animal {
             System.out.println(name + " в миске мало еды");
         }
     }
+
     public boolean isFull() {
         return fullness;
     }
+
     public static int getCatCount() {
         return catCount;
     }

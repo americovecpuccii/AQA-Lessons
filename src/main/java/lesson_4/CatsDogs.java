@@ -1,6 +1,7 @@
 package lesson_4;
 
 public class CatsDogs {
+
     public static void main(String[] args) {
         Dog dog1 = new Dog("Тузик");
         Cat cat1 = new Cat("Барсик");

@@ -1,10 +1,21 @@
 package lesson_4;
 
+import java.security.PublicKey;
+
 interface Geometry {
-    String getFillColor();
-    String getBorderColor();
-    double calculatePerimeter();
-    double calculateArea();
-    String printInfo();
+
+    public String getFillColor();
+
+    public String getBorderColor();
+
+    default double calculatePerimeter() {
+        System.out.println("Расчет периметра по умолчанию не реализован");
+        return 0;
     }
+    public double calculateArea();
+
+    public String printInfo();
+}
+
+
 

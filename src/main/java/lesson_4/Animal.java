@@ -1,6 +1,7 @@
 package lesson_4;
 
 public class Animal {
+
     protected String name;
     protected static int animalCount = 0;
     public Animal(String name) {
@@ -10,9 +11,11 @@ public class Animal {
     public void run(int distance) {
         System.out.println(name + " пробежал " + distance + " м.");
     }
+
     public void swim(int distance) {
         System.out.println(name + " проплыл " + distance + " м.");
     }
+
     public static int getAnimalCount() {
         return animalCount;
     }

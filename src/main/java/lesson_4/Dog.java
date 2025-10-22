@@ -1,6 +1,7 @@
 package lesson_4;
 
 public class Dog extends Animal {
+
     private static int dogCount = 0;
     private final int MAX_RUN_DISTANCE = 500;
     private final int MAX_SWIM_DISTANCE = 10;
