@@ -10,6 +10,7 @@ abstract class GeometryShape implements Geometry {
         this.fillColor = fillColor;
         this.borderColor = borderColor;
     }
+
     public String getFillColor() {return fillColor;}
 
     public String getBorderColor() {return borderColor;}

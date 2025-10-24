@@ -7,6 +7,7 @@ public class Triangle extends GeometryShape {
     private static int side3;
     private static int high;
     private static int base;
+
     public Triangle(Integer side1, Integer side2, Integer side3,
                     Integer high, Integer base, String fillColor, String borderColor) {
         super(fillColor, borderColor);
@@ -15,8 +16,8 @@ public class Triangle extends GeometryShape {
         this.side3 = side3;
         this.high = high;
         this.base = base;
-
     }
+
     public double calculatePerimeter() {
         return side1 + side2 + side3;
     }

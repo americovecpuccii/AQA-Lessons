@@ -20,7 +20,7 @@ public class CatsDogs {
         System.out.println("Котов: " + Cat.getCatCount());
 
         Bowl bowl = new Bowl(10);
-        bowl.addFood(15);
+        bowl.addFood(2);
 
         Cat[] cats = {
                 new Cat("Вася"),

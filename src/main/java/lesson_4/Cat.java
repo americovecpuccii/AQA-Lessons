@@ -4,8 +4,8 @@ class Cat extends Animal {
 
     private static int catCount = 0;
     private final int MAX_RUN_DISTANCE = 200;
-    private boolean fullness; // сытость
-    private final int FOOD_PORTION = 10;
+    private boolean fullness;
+
     public Cat(String name) {
         super(name);
         this.fullness = false;
@@ -25,7 +25,7 @@ class Cat extends Animal {
     }
 
     public void eat(Bowl bowl) {
-        if (bowl.getFood() >= FOOD_PORTION) {
+        if (bowl.getFood() >= 10) {
             fullness = true;
             System.out.println(name + " поел и теперь сыт");
         } else {

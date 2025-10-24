@@ -3,15 +3,16 @@ package lesson_4;
 public class Circle extends GeometryShape{
 
     private static int radius;
+
     public Circle(Integer radius, String fillColor, String borderColor) {
         super(fillColor, borderColor);
         this.radius = radius;
     }
-            public double calculatePerimeter() {
+    public double calculatePerimeter() {
             return 2 * Math.PI * radius;
         }
 
-        public double calculateArea() {
+    public double calculateArea() {
             return Math.PI * radius * radius;
         }
 

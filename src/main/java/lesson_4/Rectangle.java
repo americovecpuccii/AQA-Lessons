@@ -4,6 +4,7 @@ public class Rectangle extends GeometryShape {
 
     private static int side1;
     private static int side2;
+
     public Rectangle(Integer side1, Integer side2, String fillColor, String borderColor) {
         super(fillColor, borderColor);
         this.side1 = side1;

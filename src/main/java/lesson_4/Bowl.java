@@ -7,7 +7,6 @@ package lesson_4;
         public Bowl(int initialFood) {
             this.food = initialFood;
         }
-
         public Bowl() {
             this(0);
         }
@@ -19,10 +18,8 @@ package lesson_4;
         public void addFood(int amount) {
                           food += amount;
                 System.out.println("В миску добавлено " + amount + " еды. Теперь в миске: " + food + "еды");
-
             }
         }
-
 
 
 

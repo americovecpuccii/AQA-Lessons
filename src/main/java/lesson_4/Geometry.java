@@ -12,10 +12,9 @@ interface Geometry {
         System.out.println("Расчет периметра по умолчанию не реализован");
         return 0;
     }
+
     public double calculateArea();
 
     public String printInfo();
 }
-
-
 
