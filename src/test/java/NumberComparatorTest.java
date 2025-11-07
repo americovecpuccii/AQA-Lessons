@@ -1,21 +1,19 @@
-import lesson_7_testng.NumberComparator;
-import org.testng.annotations.Test;
-import org.testng.annotations.DataProvider;
-import static org.testng.Assert.*;
+import lesson_7_junit_5.NumberComparator;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class NumberComparatorTest {
+class NumberComparatorTest {
 
-    @Test(dataProvider = "comparisonData")
-    public void testCompareNumbers(int a, int b, String expected) {
-        assertEquals(NumberComparator.compareNumbers(a, b), expected);
-    }
-
-    @DataProvider(name = "comparisonData")
-    public Object[][] comparisonData() {
-        return new Object[][]{
-                {9, 3, "9 больше 3"},
-                {2, 4, "2 меньше 4"},
-                {6, 6, "6 равно 6"},
-        };
+    @ParameterizedTest
+    @DisplayName("Сравнение двух чисел")
+    @CsvSource({
+            "7, 1, '7 больше 1'",
+            "4, 9, '4 меньше 9'",
+            "8, 8, '8 равно 8'",
+    })
+    void testCompareNumbers(int a, int b, String expected) {
+        assertEquals(expected, NumberComparator.compareNumbers(a, b));
     }
 }

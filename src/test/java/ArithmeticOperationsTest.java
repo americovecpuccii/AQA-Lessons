@@ -1,59 +1,48 @@
-import lesson_7_testng.ArithmeticOperations;
-import org.testng.annotations.Test;
-import org.testng.annotations.DataProvider;
-import static org.testng.Assert.*;
+import lesson_7_junit_5.ArithmeticOperations;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class ArithmeticOperationsTest {
+class ArithmeticOperationsTest {
 
-    @Test(dataProvider = "additionData")
-    public void testAdd(int a, int b, int expected) {
-        assertEquals(ArithmeticOperations.add(a, b), expected);
+    @ParameterizedTest
+    @DisplayName("Сложение")
+    @CsvSource({
+            "5, 3, 8",
+            "-5, 3, -2"
+    })
+    void testAdd(int a, int b, int expected) {
+        assertEquals(expected, ArithmeticOperations.add(a, b));
     }
 
-    @DataProvider(name = "additionData")
-    public Object[][] additionData() {
-        return new Object[][]{
-                {5, 3, 8},
-                {-5, 3, -2},
-        };
+    @ParameterizedTest
+    @DisplayName("Вычитание")
+    @CsvSource({
+            "10, 3, 7",
+            "5, 8, -3"
+    })
+    void testSubtract(int a, int b, int expected) {
+        assertEquals(expected, ArithmeticOperations.subtract(a, b));
     }
 
-    @Test(dataProvider = "subtractionData")
-    public void testSubtract(int a, int b, int expected) {
-        assertEquals(ArithmeticOperations.subtract(a, b), expected);
+    @ParameterizedTest
+    @DisplayName("Умножение")
+    @CsvSource({
+            "5, 3, 15",
+            "-5, 3, -15"
+    })
+    void testMultiply(int a, int b, int expected) {
+        assertEquals(expected, ArithmeticOperations.multiply(a, b));
     }
 
-    @DataProvider(name = "subtractionData")
-    public Object[][] subtractionData() {
-        return new Object[][]{
-                {10, 3, 7},
-                {5, 8, -3},
-        };
-    }
-
-    @Test(dataProvider = "multiplicationData")
-    public void testMultiply(int a, int b, int expected) {
-        assertEquals(ArithmeticOperations.multiply(a, b), expected);
-    }
-
-    @DataProvider(name = "multiplicationData")
-    public Object[][] multiplicationData() {
-        return new Object[][]{
-                {5, 3, 15},
-                {-5, 3, -15},
-        };
-    }
-
-    @Test(dataProvider = "divisionData")
-    public void testDivide(int a, int b, double expected) {
-        assertEquals(ArithmeticOperations.divide(a, b), expected);
-    }
-
-    @DataProvider(name = "divisionData")
-    public Object[][] divisionData() {
-        return new Object[][]{
-                {10, 2, 5.0},
-                {-15, 3, -5.0},
-        };
+    @ParameterizedTest
+    @DisplayName("Деление")
+    @CsvSource({
+            "10, 2, 5.0",
+            "7, 2, 3.5"
+    })
+    void testDivide(int a, int b, double expected) {
+        assertEquals(expected, ArithmeticOperations.divide(a, b));
     }
 }

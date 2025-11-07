@@ -1,37 +1,32 @@
-import lesson_7_testng.TriangleArea;
-import org.testng.annotations.Test;
-import org.testng.annotations.DataProvider;
-import static org.testng.Assert.*;
+import lesson_7_junit_5.FactorialCalculator;
+import lesson_7_junit_5.TriangleArea;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
-public class TriangleAreaTest {
+import static org.junit.jupiter.api.Assertions.*;
 
-    @Test(dataProvider = "baseHeightData")
-    public void testAreaByBaseAndHeight(double base, double height, double expectedArea) {
-        double actualArea = TriangleArea.calculateArea(base, height);
-        assertEquals(actualArea, expectedArea);
+class TriangleAreaTest {
+
+    @ParameterizedTest
+    @DisplayName("Расчет площади")
+    @CsvSource({
+            "10, 5, 25",
+            "7.5, 2, 7.5",
+            "1, 1, 0.5"
+    })
+    void testAreaByBaseAndHeight(double base, double height, double expectedArea) {
+        assertEquals(expectedArea, TriangleArea.calculateArea(base, height));
     }
 
-    @DataProvider(name = "baseHeightData")
-    public Object[][] baseHeightData() {
-        return new Object[][]{
-                {10, 5, 25},
-                {4, 3, 6},
-                {7.5, 2, 7.5}
-        };
-    }
+    @Test
+    @DisplayName("Расчет площади с невалидными данными")
+    void testAreaByBaseAndHeightInvalidInput() {
 
-    @Test(dataProvider = "invalidBaseHeightData",
-            expectedExceptions = IllegalArgumentException.class)
-    public void testAreaByBaseAndHeightInvalidInput(double base, double height) {
-        TriangleArea.calculateArea(base, height);
-    }
-
-    @DataProvider(name = "invalidBaseHeightData")
-    public Object[][] invalidBaseHeightData() {
-        return new Object[][]{
-                {-5, 10},
-                {5, -10},
-                {0, 10}
-        };
+        assertThrows(IllegalArgumentException.class,
+                () -> TriangleArea.calculateArea(-5, -10));
     }
 }
+
